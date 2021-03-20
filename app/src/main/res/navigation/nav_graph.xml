@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/add_scan">
+
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="space.basyk.superscanner.screens.additem.AddItemFragment"
+        android:label="fragment_add_item"
+        tools:layout="@layout/fragment_add_item" >
+        <action
+            android:id="@+id/action_addItemFragment_to_scanFragment"
+            app:destination="@id/add_scan"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/list_scan"
+        android:name="space.basyk.superscanner.screens.listitem.ListAllFragment"
+        android:label="fragment_list_all"
+        tools:layout="@layout/fragment_list_all" />
+    <fragment
+        android:id="@+id/add_scan"
+        android:name="space.basyk.superscanner.screens.addscan.ScanFragment"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/search_scan"
+        android:name="space.basyk.superscanner.screens.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_scan_to_addCategoriesFragment"
+            app:destination="@id/addCategoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCategoriesFragment"
+        android:name="space.basyk.superscanner.screens.addcategories.AddCategoriesFragment"
+        android:label="fragment_add_categories"
+        tools:layout="@layout/fragment_add_categories" >
+        <action
+            android:id="@+id/action_addCategoriesFragment_to_search_scan"
+            app:destination="@id/search_scan"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+</navigation>
